@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Web App</title>
+    <style>
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100vw;
+            height: 50vh;
+        }
+
+        button:hover {
+            background-color: #0056B3;
+        }
+    </style>
+</head>
+<body>
+    <button id="callButton">OPEN/CLOSE</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const callButton = document.getElementById("callButton");
+
+            callButton.addEventListener("click", function () {
+                // Replace this URL with the actual path you want to call
+                const url = "/set";
+
+                // Create an AJAX request
+                const xhr = new XMLHttpRequest();
+                xhr.open("GET", url, true);
+
+                // Define what to do when the request is complete
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                        // Handle a successful response here
+                        console.log("Request successful:", xhr.responseText);
+                    } else {
+                        // Handle errors here
+                        console.error("Request failed:", xhr.status, xhr.statusText);
+                    }
+                };
+
+                // Send the request
+                xhr.send();
+            });
+        });
+    </script>
+</body>
+</html>
