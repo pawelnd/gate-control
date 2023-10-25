@@ -3,8 +3,8 @@ const basicAuth = require('express-basic-auth');
 const app = express();
 const PORT = 30945;
 
-const user = process.env.USER || ''
-const pass = process.env.PASS || ''
+const user = process.env.USER || 'user'
+const pass = process.env.PASS || 'pass'
 
 const users = {
     [user]: pass,
